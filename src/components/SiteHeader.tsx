@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
 
+import sincroLogo from '@/assets/sincro_logo.png.asset.json';
 const NAV_ITEMS = [
   { href: '#empresa', label: 'Empresa' },
   { href: '#diagnostico', label: 'Diagnóstico' },
@@ -31,14 +32,8 @@ export default function SiteHeader() {
       }`}
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
-        <a href="#inicio" className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-navy-950">
-            <Zap className="h-5 w-5" strokeWidth={2.5} />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-sm font-bold uppercase tracking-wider text-white">Sincro Energía</span>
-            <span className="block text-[11px] uppercase tracking-[0.25em] text-amber-400">S.A.S.</span>
-          </span>
+        <a href="#inicio" className="flex items-center">
+          <img src={sincroLogo.url} alt="Sincro Energía S.A.S." className="h-10 w-auto" />
         </a>
 
         <ul className="hidden items-center gap-1 xl:flex">
