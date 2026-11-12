@@ -28,3 +28,16 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Delivering code to the user's repository
+
+- Code delivered to the user's own GitHub repository goes through the GitHub
+  connector API (blobs, then a tree with blob shas, then a ref update), never
+  through Git sync — Git sync cannot link a repository that already exists.
+- Send file contents as blobs with base64 encoding and reference the returned
+  blob sha in the tree; putting base64 in a tree entry's `content` stores the
+  base64 text as the file itself.
+
+## Self-hosted assets
+
+- Docker builds set `VITE_SELF_HOSTED_ASSETS=true` and copy repository assets to `.output/public/assets`; the header uses that public path in containers and the managed asset pointer in Lovable so both deployments load the logo.

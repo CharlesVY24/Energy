@@ -33,7 +33,7 @@ export default function SiteHeader() {
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         <a href="#inicio" className="flex items-center">
-          <img src={sincroLogo.url} alt="Sincro Energía S.A.S." className="h-10 w-auto" />
+          <img src={import.meta.env['VITE_SELF_HOSTED_ASSETS'] === 'true' ? '/assets/sincro_logo.png' : sincroLogo.url} alt="Sincro Energía S.A.S." className="h-10 w-auto" />
         </a>
 
         <ul className="hidden items-center gap-1 xl:flex">
