@@ -40,4 +40,4 @@ use the editor.
 
 ## Self-hosted assets
 
-- Docker builds set `VITE_SELF_HOSTED_ASSETS=true` and copy repository assets to `.output/public/assets`; the header uses that public path in containers and the managed asset pointer in Lovable so both deployments load the logo.
+- Docker builds set `VITE_SELF_HOSTED_ASSETS=true` and copy repository images from `src/assets` into `public/assets` before `bun run build`; the Node server only serves files present at build time, so copying into `.output` afterwards returns 404. The header uses `/assets/...` in containers and the managed asset pointer in Lovable.
